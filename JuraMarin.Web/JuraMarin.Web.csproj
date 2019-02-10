@@ -1438,4 +1438,10 @@
     <None Include="wwwroot\porto\vendor\vide\vide.min.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Shared\_AdminLayout.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>
