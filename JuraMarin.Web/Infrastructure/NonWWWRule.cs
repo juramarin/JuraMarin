@@ -14,9 +14,9 @@ namespace JuraMarin.Web.Infrastructure
         {
             var req = context.HttpContext.Request;
             var currentHost = req.Host;
-            if (currentHost.Host.StartsWith("www."))
+            if (currentHost.Host.ToLower().StartsWith("www."))
             {
-                var newHost = new HostString(currentHost.Host.Substring(4), currentHost.Port ?? 80);
+                var newHost = new HostString(currentHost.Host.Substring(4));
                 var newUrl = new StringBuilder().Append("https://").Append(newHost).Append(req.PathBase).Append(req.Path).Append(req.QueryString);
                 context.HttpContext.Response.Redirect(newUrl.ToString());
                 context.Result = RuleResult.EndResponse;

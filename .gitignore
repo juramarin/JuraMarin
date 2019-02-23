@@ -267,3 +267,4 @@ __pycache__/
 *.publishproj
 appsettings.Production.json
 appsettings.Development.json
+launchSettings.json
