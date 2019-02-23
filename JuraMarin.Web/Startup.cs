@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using JuraMarin.Web.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Rewrite;
+using JuraMarin.Web.Infrastructure;
 
 namespace JuraMarin.Web
 {
@@ -56,6 +58,10 @@ namespace JuraMarin.Web
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+
+            var options = new RewriteOptions();
+            options.Rules.Add(new NonWWWRule());
+            app.UseRewriter(options);
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
